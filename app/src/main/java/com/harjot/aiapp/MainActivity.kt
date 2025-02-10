@@ -62,8 +62,8 @@ class MainActivity : AppCompatActivity() {
                     // Make API Call
                     val response = model.generateContent(
                         content {
-                            image(imgBitmap!!)
-                            text("What is the object in this picture?")
+                            imgBitmap?.let { it1 -> image(it1) }
+                            text(binding.etQuestion.text.toString())
                         }
                     )
                     val textResponse = response.text ?: "No response received"
